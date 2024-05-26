@@ -2,7 +2,7 @@
 #### Video Demo:  <[URL HERE](https://youtu.be/Vx5-VTUFEcg)>
 - Autor: Ninh Vo
 - GitHub: DucNinhVo
-- edX usernames; ninhvo
+- edX usernames: ninhvo
 - Location: Sìegen, Germany
 - Recorded Date: 11/04/2024
 ### Introduction
