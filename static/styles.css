@@ -1,0 +1,38 @@
+/* Size for brand */
+nav .navbar-brand {
+    font-size: x-large;
+}
+
+/* CSS for styling the timer */
+.timer-display {
+    font-size: 35px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.container {
+    margin-bottom: 25px;
+}
+
+.overview {
+    margin-top: 50px;
+}
+
+.diagram {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+table.table td,
+table.table th {
+    vertical-align: middle;
+}
+
+.timer-input {
+    margin-bottom: 10px;
+}

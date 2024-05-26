@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Weather
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Air Temparatur</th>
+                    <th>Track Temparatur</th>
+                    <th>Track Condition</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ (item.time.split())[0][5:10] }}</td>
+                        <td>{{ (item.time.split())[1][:5] }}</td>
+                        <td>{{ item.air_temp }}</td>
+                        <td>{{ item.track_temp }}</td>
+                        <td>{{ item.track_cond }}</td>
+                        <td>
+                            <form action="/weather" method="post">
+                                <input type="hidden" name="delete" value="{{ item.id }}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <form action="/weather" method="post">
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input required autocomplete="off" name="airTemp" type="number" step="0.01">
+                        </td>
+                        <td>
+                            <input required autocomplete="off" name="trackTemp" type="number" step="0.01">
+                        </td>
+                        <td>
+                            <input required name="trackCond" type="text">
+                        </td>
+                        <td>
+                            <input name="addWeather" type="submit" value="Add">
+                        </td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="diagram container-fluid" id="diagram2">
+        {{ diagram | safe }}
+    </div>
+{% endblock %}

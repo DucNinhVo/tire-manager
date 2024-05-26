@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Overview
+{% endblock %}
+
+{% block main %}
+    <div class="overview">
+        <h1>Overview</h1>
+    </div>
+
+    <div class="overview container-fluid">
+        <h4>Current tyre set</h4>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>{% if order %}
+                    <th>{{ order[0].description}}</th>
+                {% else %}
+                    <th>No order found</th>
+                {% endif %}
+                    <th>Rear-Left</th>
+                    <th>Rear-Right</th>
+                    <th>Front-Left</th>
+                    <th>Front-Right</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% if current_set %}
+                        <th>Pressure</th>
+                        <td>{{ current_set[0].rl_press }}</td>
+                        <td>{{ current_set[0].rr_press }}</td>
+                        <td>{{ current_set[0].fl_press }}</td>
+                        <td>{{ current_set[0].fr_press }}</td>
+                        <td>{{ current_set[0].status }}</td>
+                    {% else %}
+                        <p>No Set found</p>
+                    {% endif %}
+                </tr>
+
+                <tr>
+                    {% if order %}
+                        <th>Specification</td>
+                        <td>{{ order[0].rear_left }}</td>
+                        <td>{{ order[0].rear_right }}</td>
+                        <td>{{ order[0].front_left }}</td>
+                        <td>{{ order[0].front_right }}</td>
+                        <td></td>
+                    {% else %}
+                        <p>No order found</p>
+                    {% endif %}
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="overview container-fluid">
+        <h4>Lastest order</h4>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Rear-Left</th>
+                    <th>Rear-Right</th>
+                    <th>Front-Left</th>
+                    <th>Front-Right</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% if lastest_order %}
+                        <th>{{ lastest_order[0].description }}</td>
+                        <td>{{ lastest_order[0].rear_left }}</td>
+                        <td>{{ lastest_order[0].rear_right }}</td>
+                        <td>{{ lastest_order[0].front_left }}</td>
+                        <td>{{ lastest_order[0].front_right }}</td>
+                        <td>{{ lastest_order[0].status }}</td>
+                    {% else %}
+                        <p>No order found</p>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+
+        <div class="overview diagram container-fluid" id="diagram2">
+            {{ diagram | safe }}
+        </div>
+{% endblock %}
